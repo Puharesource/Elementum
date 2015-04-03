@@ -1,0 +1,14 @@
+rootProject.name = 'Elementum'
+
+include 'plugins/ElementumCore'
+include 'plugins/ElementumChat'
+include 'plugins/ElementumEconomy'
+include 'plugins/ElementumPunishments'
+include 'plugins/ElementumWorlds'
+
+rootProject.children.find { it.name == 'plugins/ElementumCore' }.name = 'ElementumCore'
+rootProject.children.find { it.name == 'plugins/ElementumChat' }.name = 'ElementumChat'
+rootProject.children.find { it.name == 'plugins/ElementumPunishments' }.name = 'ElementumPunishments'
+rootProject.children.find { it.name == 'plugins/ElementumWorlds' }.name = 'ElementumWorlds'
+rootProject.children.find { it.name == 'plugins/ElementumEconomy' }.name = 'ElementumEconomy'
+

@@ -1,0 +1,5 @@
+name: Elementum
+version: 1.0.0
+author: Puharesource
+
+main: io.puharesource.mc.elementum.core.ElementumCorePlugin
