@@ -123,8 +123,8 @@ abstract class RootCommand implements CommandExecutor, TabCompleter {
                 return true
             } else {
                 if (type == Type.ASYNC) {
-                    Bukkit.getScheduler().runTaskAsynchronously(ElementumCorePlugin.getInstance(), {execute(cmd.label.toLowerCase(), args, sender)})
-                } else execute(cmd.label.toLowerCase(), args, sender)
+                    Bukkit.getScheduler().runTaskAsynchronously(ElementumCorePlugin.getInstance(), {execute(label.toLowerCase(), args, sender)})
+                } else execute(label.toLowerCase(), args, sender)
             }
         } else {
             if (sender instanceof Player && allowedCommandSender == SenderType.CONSOLE) {
@@ -136,8 +136,8 @@ abstract class RootCommand implements CommandExecutor, TabCompleter {
                 return true
             }
             if (type == Type.ASYNC) {
-                Bukkit.getScheduler().runTaskAsynchronously(ElementumCorePlugin.getInstance(), {execute(cmd.label.toLowerCase(), args, sender)})
-            } else execute(cmd.label.toLowerCase(), args, sender)
+                Bukkit.getScheduler().runTaskAsynchronously(ElementumCorePlugin.getInstance(), {execute(label.toLowerCase(), args, sender)})
+            } else execute(label.toLowerCase(), args, sender)
         }
 
         return true

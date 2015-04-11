@@ -3,14 +3,11 @@ import groovy.transform.CompileStatic
 import io.puharesource.mc.elementum.core.api.command.CommandManager
 import io.puharesource.mc.elementum.core.api.config.CredentialsConfig
 import io.puharesource.mc.elementum.core.api.config.MainConfig
+import io.puharesource.mc.elementum.core.api.config.YamlConfigTest
 import io.puharesource.mc.elementum.core.api.plugin.ElementumPlugin
 import io.puharesource.mc.elementum.core.api.storage.StorageManager
 import io.puharesource.mc.elementum.core.api.storage.StorageType
-import io.puharesource.mc.elementum.core.commands.CommandFeed
-import io.puharesource.mc.elementum.core.commands.CommandGamemode
-import io.puharesource.mc.elementum.core.commands.CommandGod
-import io.puharesource.mc.elementum.core.commands.CommandHeal
-import io.puharesource.mc.elementum.core.commands.CommandNickname
+import io.puharesource.mc.elementum.core.commands.*
 import io.puharesource.mc.elementum.core.listeners.ListenerChat
 import io.puharesource.mc.elementum.core.listeners.ListenerConnection
 import io.puharesource.mc.elementum.core.listeners.ListenerDamage
@@ -18,6 +15,7 @@ import io.puharesource.mc.elementum.core.listeners.ListenerMisc
 import io.puharesource.mc.elementum.core.storage.MySQLIStorageManager
 import io.puharesource.mc.elementum.core.storage.MySQLStorageManager
 import io.puharesource.mc.elementum.core.storage.RedisStorageManager
+import org.bukkit.configuration.serialization.ConfigurationSerialization
 /**
 *  Created by Tarkan on 30-03-2015.
 *  This class is under the GPLv3 license.
@@ -51,6 +49,8 @@ final class ElementumCorePlugin extends ElementumPlugin {
         CommandManager.register(new CommandFeed())
         CommandManager.register(new CommandGod())
         CommandManager.register(new CommandGamemode())
+
+        ConfigurationSerialization.registerClass(YamlConfigTest.class)
     }
 
     static ElementumCorePlugin getInstance() { instance }

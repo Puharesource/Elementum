@@ -52,6 +52,4 @@ class Config {
             e.printStackTrace()
         }
     }
-
-    Config getConfig() { this }
 }

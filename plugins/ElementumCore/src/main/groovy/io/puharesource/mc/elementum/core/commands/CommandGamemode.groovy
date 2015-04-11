@@ -19,21 +19,16 @@ final class CommandGamemode extends RootCommand {
 
     @Override
     void execute(String label, String[] args, CommandSender sender) {
-
-        Bukkit.broadcastMessage("${ChatColor.YELLOW} ${label}")
-
         if (args.length <= 0 && sender instanceof ConsoleCommandSender) {
             sender.sendMessage("${ChatColor.RED} You need to specify a player!")
             return
         }
 
         if (label.length() > 2 && label.toLowerCase().startsWith("gm")) {
-            GM gameMode = getGamemode(label)
+            GM gameMode = getGamemode(label.substring(2))
             if (args.length <= 0) {
-                if (gameMode != null) {
-                    (sender as Player).setGameMode(gameMode)
-                    sender.sendMessage(ChatColor.GREEN.toString() + "You have set your gamemode to ${gameMode.toString().toLowerCase()}")
-                } else sender.sendMessage(ChatColor.RED.toString() + "Invalid gamemode ${args[0]}")
+                (sender as Player).setGameMode(gameMode)
+                sender.sendMessage(ChatColor.GREEN.toString() + "You have set your gamemode to ${gameMode.toString().toLowerCase()}")
             } else {
                 Player player = Bukkit.getPlayer(args[0])
 
